@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8ACE7A5E275E2AA70000DBC3 /* PrayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A5D275E2AA70000DBC3 /* PrayerApp.swift */; };
+		8ACE7A60275E2AA70000DBC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A5F275E2AA70000DBC3 /* ContentView.swift */; };
+		8ACE7A62275E2AA90000DBC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE7A61275E2AA90000DBC3 /* Assets.xcassets */; };
+		8ACE7A65275E2AA90000DBC3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE7A64275E2AA90000DBC3 /* Preview Assets.xcassets */; };
+		8ACE7A67275E2AA90000DBC3 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A66275E2AA90000DBC3 /* Persistence.swift */; };
+		8ACE7A6A275E2AA90000DBC3 /* Prayer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A68275E2AA90000DBC3 /* Prayer.xcdatamodeld */; };
+		8ACE7A75275E2AA90000DBC3 /* PrayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A74275E2AA90000DBC3 /* PrayerTests.swift */; };
+		8ACE7A7F275E2AA90000DBC3 /* PrayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A7E275E2AA90000DBC3 /* PrayerUITests.swift */; };
+		8ACE7A81275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A80275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8ACE7A71275E2AA90000DBC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8ACE7A52275E2AA70000DBC3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8ACE7A59275E2AA70000DBC3;
+			remoteInfo = Prayer;
+		};
+		8ACE7A7B275E2AA90000DBC3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8ACE7A52275E2AA70000DBC3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8ACE7A59275E2AA70000DBC3;
+			remoteInfo = Prayer;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8ACE7A5A275E2AA70000DBC3 /* Prayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ACE7A5D275E2AA70000DBC3 /* PrayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerApp.swift; sourceTree = "<group>"; };
+		8ACE7A5F275E2AA70000DBC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8ACE7A61275E2AA90000DBC3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8ACE7A64275E2AA90000DBC3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8ACE7A66275E2AA90000DBC3 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		8ACE7A69275E2AA90000DBC3 /* Prayer.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Prayer.xcdatamodel; sourceTree = "<group>"; };
+		8ACE7A6B275E2AA90000DBC3 /* Prayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prayer.entitlements; sourceTree = "<group>"; };
+		8ACE7A70275E2AA90000DBC3 /* PrayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ACE7A74275E2AA90000DBC3 /* PrayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerTests.swift; sourceTree = "<group>"; };
+		8ACE7A7A275E2AA90000DBC3 /* PrayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8ACE7A7E275E2AA90000DBC3 /* PrayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerUITests.swift; sourceTree = "<group>"; };
+		8ACE7A80275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8ACE7A57275E2AA70000DBC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ACE7A6D275E2AA90000DBC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ACE7A77275E2AA90000DBC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8ACE7A51275E2AA70000DBC3 = {
+			isa = PBXGroup;
+			children = (
+				8ACE7A5C275E2AA70000DBC3 /* Prayer */,
+				8ACE7A73275E2AA90000DBC3 /* PrayerTests */,
+				8ACE7A7D275E2AA90000DBC3 /* PrayerUITests */,
+				8ACE7A5B275E2AA70000DBC3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8ACE7A5B275E2AA70000DBC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE7A5A275E2AA70000DBC3 /* Prayer.app */,
+				8ACE7A70275E2AA90000DBC3 /* PrayerTests.xctest */,
+				8ACE7A7A275E2AA90000DBC3 /* PrayerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8ACE7A5C275E2AA70000DBC3 /* Prayer */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE7A5D275E2AA70000DBC3 /* PrayerApp.swift */,
+				8ACE7A5F275E2AA70000DBC3 /* ContentView.swift */,
+				8ACE7A61275E2AA90000DBC3 /* Assets.xcassets */,
+				8ACE7A66275E2AA90000DBC3 /* Persistence.swift */,
+				8ACE7A6B275E2AA90000DBC3 /* Prayer.entitlements */,
+				8ACE7A68275E2AA90000DBC3 /* Prayer.xcdatamodeld */,
+				8ACE7A63275E2AA90000DBC3 /* Preview Content */,
+			);
+			path = Prayer;
+			sourceTree = "<group>";
+		};
+		8ACE7A63275E2AA90000DBC3 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE7A64275E2AA90000DBC3 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8ACE7A73275E2AA90000DBC3 /* PrayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE7A74275E2AA90000DBC3 /* PrayerTests.swift */,
+			);
+			path = PrayerTests;
+			sourceTree = "<group>";
+		};
+		8ACE7A7D275E2AA90000DBC3 /* PrayerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8ACE7A7E275E2AA90000DBC3 /* PrayerUITests.swift */,
+				8ACE7A80275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift */,
+			);
+			path = PrayerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8ACE7A59275E2AA70000DBC3 /* Prayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8ACE7A84275E2AA90000DBC3 /* Build configuration list for PBXNativeTarget "Prayer" */;
+			buildPhases = (
+				8ACE7A56275E2AA70000DBC3 /* Sources */,
+				8ACE7A57275E2AA70000DBC3 /* Frameworks */,
+				8ACE7A58275E2AA70000DBC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Prayer;
+			productName = Prayer;
+			productReference = 8ACE7A5A275E2AA70000DBC3 /* Prayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8ACE7A6F275E2AA90000DBC3 /* PrayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8ACE7A87275E2AA90000DBC3 /* Build configuration list for PBXNativeTarget "PrayerTests" */;
+			buildPhases = (
+				8ACE7A6C275E2AA90000DBC3 /* Sources */,
+				8ACE7A6D275E2AA90000DBC3 /* Frameworks */,
+				8ACE7A6E275E2AA90000DBC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8ACE7A72275E2AA90000DBC3 /* PBXTargetDependency */,
+			);
+			name = PrayerTests;
+			productName = PrayerTests;
+			productReference = 8ACE7A70275E2AA90000DBC3 /* PrayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8ACE7A79275E2AA90000DBC3 /* PrayerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8ACE7A8A275E2AA90000DBC3 /* Build configuration list for PBXNativeTarget "PrayerUITests" */;
+			buildPhases = (
+				8ACE7A76275E2AA90000DBC3 /* Sources */,
+				8ACE7A77275E2AA90000DBC3 /* Frameworks */,
+				8ACE7A78275E2AA90000DBC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8ACE7A7C275E2AA90000DBC3 /* PBXTargetDependency */,
+			);
+			name = PrayerUITests;
+			productName = PrayerUITests;
+			productReference = 8ACE7A7A275E2AA90000DBC3 /* PrayerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8ACE7A52275E2AA70000DBC3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					8ACE7A59275E2AA70000DBC3 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					8ACE7A6F275E2AA90000DBC3 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 8ACE7A59275E2AA70000DBC3;
+					};
+					8ACE7A79275E2AA90000DBC3 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 8ACE7A59275E2AA70000DBC3;
+					};
+				};
+			};
+			buildConfigurationList = 8ACE7A55275E2AA70000DBC3 /* Build configuration list for PBXProject "Prayer" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8ACE7A51275E2AA70000DBC3;
+			productRefGroup = 8ACE7A5B275E2AA70000DBC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8ACE7A59275E2AA70000DBC3 /* Prayer */,
+				8ACE7A6F275E2AA90000DBC3 /* PrayerTests */,
+				8ACE7A79275E2AA90000DBC3 /* PrayerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8ACE7A58275E2AA70000DBC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACE7A65275E2AA90000DBC3 /* Preview Assets.xcassets in Resources */,
+				8ACE7A62275E2AA90000DBC3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ACE7A6E275E2AA90000DBC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ACE7A78275E2AA90000DBC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8ACE7A56275E2AA70000DBC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACE7A67275E2AA90000DBC3 /* Persistence.swift in Sources */,
+				8ACE7A60275E2AA70000DBC3 /* ContentView.swift in Sources */,
+				8ACE7A6A275E2AA90000DBC3 /* Prayer.xcdatamodeld in Sources */,
+				8ACE7A5E275E2AA70000DBC3 /* PrayerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ACE7A6C275E2AA90000DBC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACE7A75275E2AA90000DBC3 /* PrayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8ACE7A76275E2AA90000DBC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8ACE7A7F275E2AA90000DBC3 /* PrayerUITests.swift in Sources */,
+				8ACE7A81275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8ACE7A72275E2AA90000DBC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8ACE7A59275E2AA70000DBC3 /* Prayer */;
+			targetProxy = 8ACE7A71275E2AA90000DBC3 /* PBXContainerItemProxy */;
+		};
+		8ACE7A7C275E2AA90000DBC3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8ACE7A59275E2AA70000DBC3 /* Prayer */;
+			targetProxy = 8ACE7A7B275E2AA90000DBC3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8ACE7A82275E2AA90000DBC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8ACE7A83275E2AA90000DBC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		8ACE7A85275E2AA90000DBC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Prayer/Prayer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Prayer/Preview Content\"";
+				DEVELOPMENT_TEAM = JXV4Y8SPJ8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sunflower.Prayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8ACE7A86275E2AA90000DBC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Prayer/Prayer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Prayer/Preview Content\"";
+				DEVELOPMENT_TEAM = JXV4Y8SPJ8;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sunflower.Prayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8ACE7A88275E2AA90000DBC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXV4Y8SPJ8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sunflower.PrayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prayer.app/Contents/MacOS/Prayer";
+			};
+			name = Debug;
+		};
+		8ACE7A89275E2AA90000DBC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXV4Y8SPJ8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sunflower.PrayerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Prayer.app/Contents/MacOS/Prayer";
+			};
+			name = Release;
+		};
+		8ACE7A8B275E2AA90000DBC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXV4Y8SPJ8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sunflower.PrayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Prayer;
+			};
+			name = Debug;
+		};
+		8ACE7A8C275E2AA90000DBC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = JXV4Y8SPJ8;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sunflower.PrayerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Prayer;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8ACE7A55275E2AA70000DBC3 /* Build configuration list for PBXProject "Prayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACE7A82275E2AA90000DBC3 /* Debug */,
+				8ACE7A83275E2AA90000DBC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8ACE7A84275E2AA90000DBC3 /* Build configuration list for PBXNativeTarget "Prayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACE7A85275E2AA90000DBC3 /* Debug */,
+				8ACE7A86275E2AA90000DBC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8ACE7A87275E2AA90000DBC3 /* Build configuration list for PBXNativeTarget "PrayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACE7A88275E2AA90000DBC3 /* Debug */,
+				8ACE7A89275E2AA90000DBC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8ACE7A8A275E2AA90000DBC3 /* Build configuration list for PBXNativeTarget "PrayerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8ACE7A8B275E2AA90000DBC3 /* Debug */,
+				8ACE7A8C275E2AA90000DBC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8ACE7A68275E2AA90000DBC3 /* Prayer.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8ACE7A69275E2AA90000DBC3 /* Prayer.xcdatamodel */,
+			);
+			currentVersion = 8ACE7A69275E2AA90000DBC3 /* Prayer.xcdatamodel */;
+			path = Prayer.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 8ACE7A52275E2AA70000DBC3 /* Project object */;
+}
