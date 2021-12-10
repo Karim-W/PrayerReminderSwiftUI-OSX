@@ -9,17 +9,17 @@ import Foundation
 class PrayerAPIResponse: Codable {
     let code: Int
     let status: String
-    let data: [Datum]
+    let data: DataClass
 
-    init(code: Int, status: String, data: [Datum]) {
+    init(code: Int, status: String, data: DataClass) {
         self.code = code
         self.status = status
         self.data = data
     }
 }
 
-// MARK: - Datum
-class Datum: Codable {
+// MARK: - DataClass
+class DataClass: Codable {
     let timings: Timings
     let date: DateClass
     let meta: Meta
@@ -34,28 +34,26 @@ class Datum: Codable {
 // MARK: - DateClass
 class DateClass: Codable {
     let readable, timestamp: String
-    let gregorian: Gregorian
     let hijri: Hijri
+    let gregorian: Gregorian
 
-    init(readable: String, timestamp: String, gregorian: Gregorian, hijri: Hijri) {
+    init(readable: String, timestamp: String, hijri: Hijri, gregorian: Gregorian) {
         self.readable = readable
         self.timestamp = timestamp
-        self.gregorian = gregorian
         self.hijri = hijri
+        self.gregorian = gregorian
     }
 }
 
 // MARK: - Gregorian
 class Gregorian: Codable {
-    let date: String
-    let format: Format
-    let day: String
+    let date, format, day: String
     let weekday: GregorianWeekday
     let month: GregorianMonth
     let year: String
     let designation: Designation
 
-    init(date: String, format: Format, day: String, weekday: GregorianWeekday, month: GregorianMonth, year: String, designation: Designation) {
+    init(date: String, format: String, day: String, weekday: GregorianWeekday, month: GregorianMonth, year: String, designation: Designation) {
         self.date = date
         self.format = format
         self.day = day
@@ -68,42 +66,23 @@ class Gregorian: Codable {
 
 // MARK: - Designation
 class Designation: Codable {
-    let abbreviated: Abbreviated
-    let expanded: Expanded
+    let abbreviated, expanded: String
 
-    init(abbreviated: Abbreviated, expanded: Expanded) {
+    init(abbreviated: String, expanded: String) {
         self.abbreviated = abbreviated
         self.expanded = expanded
     }
 }
 
-enum Abbreviated: String, Codable {
-    case ad = "AD"
-    case ah = "AH"
-}
-
-enum Expanded: String, Codable {
-    case annoDomini = "Anno Domini"
-    case annoHegirae = "Anno Hegirae"
-}
-
-enum Format: String, Codable {
-    case ddMmYyyy = "DD-MM-YYYY"
-}
-
 // MARK: - GregorianMonth
 class GregorianMonth: Codable {
     let number: Int
-    let en: PurpleEn
+    let en: String
 
-    init(number: Int, en: PurpleEn) {
+    init(number: Int, en: String) {
         self.number = number
         self.en = en
     }
-}
-
-enum PurpleEn: String, Codable {
-    case april = "April"
 }
 
 // MARK: - GregorianWeekday
@@ -117,16 +96,14 @@ class GregorianWeekday: Codable {
 
 // MARK: - Hijri
 class Hijri: Codable {
-    let date: String
-    let format: Format
-    let day: String
+    let date, format, day: String
     let weekday: HijriWeekday
     let month: HijriMonth
     let year: String
     let designation: Designation
-    let holidays: [String]
+    let holidays: [JSONAny]
 
-    init(date: String, format: Format, day: String, weekday: HijriWeekday, month: HijriMonth, year: String, designation: Designation, holidays: [String]) {
+    init(date: String, format: String, day: String, weekday: HijriWeekday, month: HijriMonth, year: String, designation: Designation, holidays: [JSONAny]) {
         self.date = date
         self.format = format
         self.day = day
@@ -141,24 +118,13 @@ class Hijri: Codable {
 // MARK: - HijriMonth
 class HijriMonth: Codable {
     let number: Int
-    let en: FluffyEn
-    let ar: Ar
+    let en, ar: String
 
-    init(number: Int, en: FluffyEn, ar: Ar) {
+    init(number: Int, en: String, ar: String) {
         self.number = number
         self.en = en
         self.ar = ar
     }
-}
-
-enum Ar: String, Codable {
-    case رجب = "رَجَب"
-    case شعبان = "شَعْبان"
-}
-
-enum FluffyEn: String, Codable {
-    case rajab = "Rajab"
-    case shaBān = "Shaʿbān"
 }
 
 // MARK: - HijriWeekday
@@ -174,13 +140,12 @@ class HijriWeekday: Codable {
 // MARK: - Meta
 class Meta: Codable {
     let latitude, longitude: Double
-    let timezone: Timezone
+    let timezone: String
     let method: Method
-    let latitudeAdjustmentMethod: LatitudeAdjustmentMethod
-    let midnightMode, school: MidnightMode
+    let latitudeAdjustmentMethod, midnightMode, school: String
     let offset: [String: Int]
 
-    init(latitude: Double, longitude: Double, timezone: Timezone, method: Method, latitudeAdjustmentMethod: LatitudeAdjustmentMethod, midnightMode: MidnightMode, school: MidnightMode, offset: [String: Int]) {
+    init(latitude: Double, longitude: Double, timezone: String, method: Method, latitudeAdjustmentMethod: String, midnightMode: String, school: String, offset: [String: Int]) {
         self.latitude = latitude
         self.longitude = longitude
         self.timezone = timezone
@@ -192,18 +157,14 @@ class Meta: Codable {
     }
 }
 
-enum LatitudeAdjustmentMethod: String, Codable {
-    case angleBased = "ANGLE_BASED"
-}
-
 // MARK: - Method
 class Method: Codable {
     let id: Int
-    let name: Name
+    let name: String
     let params: Params
     let location: Location
 
-    init(id: Int, name: Name, params: Params, location: Location) {
+    init(id: Int, name: String, params: Params, location: Location) {
         self.id = id
         self.name = name
         self.params = params
@@ -221,31 +182,20 @@ class Location: Codable {
     }
 }
 
-enum Name: String, Codable {
-    case islamicSocietyOfNorthAmericaISNA = "Islamic Society of North America (ISNA)"
-}
-
 // MARK: - Params
 class Params: Codable {
-    let fajr, isha: Int
+    let fajr: Double
+    let isha: String
 
     enum CodingKeys: String, CodingKey {
         case fajr = "Fajr"
         case isha = "Isha"
     }
 
-    init(fajr: Int, isha: Int) {
+    init(fajr: Double, isha: String) {
         self.fajr = fajr
         self.isha = isha
     }
-}
-
-enum MidnightMode: String, Codable {
-    case standard = "STANDARD"
-}
-
-enum Timezone: String, Codable {
-    case europeLondon = "Europe/London"
 }
 
 // MARK: - Timings
@@ -276,5 +226,247 @@ class Timings: Codable {
         self.isha = isha
         self.imsak = imsak
         self.midnight = midnight
+    }
+}
+
+// MARK: - Encode/decode helpers
+
+class JSONNull: Codable, Hashable {
+
+    public static func == (lhs: JSONNull, rhs: JSONNull) -> Bool {
+        return true
+    }
+
+    public var hashValue: Int {
+        return 0
+    }
+
+    public init() {}
+
+    public required init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        if !container.decodeNil() {
+            throw DecodingError.typeMismatch(JSONNull.self, DecodingError.Context(codingPath: decoder.codingPath, debugDescription: "Wrong type for JSONNull"))
+        }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encodeNil()
+    }
+}
+
+class JSONCodingKey: CodingKey {
+    let key: String
+
+    required init?(intValue: Int) {
+        return nil
+    }
+
+    required init?(stringValue: String) {
+        key = stringValue
+    }
+
+    var intValue: Int? {
+        return nil
+    }
+
+    var stringValue: String {
+        return key
+    }
+}
+
+class JSONAny: Codable {
+
+    let value: Any
+
+    static func decodingError(forCodingPath codingPath: [CodingKey]) -> DecodingError {
+        let context = DecodingError.Context(codingPath: codingPath, debugDescription: "Cannot decode JSONAny")
+        return DecodingError.typeMismatch(JSONAny.self, context)
+    }
+
+    static func encodingError(forValue value: Any, codingPath: [CodingKey]) -> EncodingError {
+        let context = EncodingError.Context(codingPath: codingPath, debugDescription: "Cannot encode JSONAny")
+        return EncodingError.invalidValue(value, context)
+    }
+
+    static func decode(from container: SingleValueDecodingContainer) throws -> Any {
+        if let value = try? container.decode(Bool.self) {
+            return value
+        }
+        if let value = try? container.decode(Int64.self) {
+            return value
+        }
+        if let value = try? container.decode(Double.self) {
+            return value
+        }
+        if let value = try? container.decode(String.self) {
+            return value
+        }
+        if container.decodeNil() {
+            return JSONNull()
+        }
+        throw decodingError(forCodingPath: container.codingPath)
+    }
+
+    static func decode(from container: inout UnkeyedDecodingContainer) throws -> Any {
+        if let value = try? container.decode(Bool.self) {
+            return value
+        }
+        if let value = try? container.decode(Int64.self) {
+            return value
+        }
+        if let value = try? container.decode(Double.self) {
+            return value
+        }
+        if let value = try? container.decode(String.self) {
+            return value
+        }
+        if let value = try? container.decodeNil() {
+            if value {
+                return JSONNull()
+            }
+        }
+        if var container = try? container.nestedUnkeyedContainer() {
+            return try decodeArray(from: &container)
+        }
+        if var container = try? container.nestedContainer(keyedBy: JSONCodingKey.self) {
+            return try decodeDictionary(from: &container)
+        }
+        throw decodingError(forCodingPath: container.codingPath)
+    }
+
+    static func decode(from container: inout KeyedDecodingContainer<JSONCodingKey>, forKey key: JSONCodingKey) throws -> Any {
+        if let value = try? container.decode(Bool.self, forKey: key) {
+            return value
+        }
+        if let value = try? container.decode(Int64.self, forKey: key) {
+            return value
+        }
+        if let value = try? container.decode(Double.self, forKey: key) {
+            return value
+        }
+        if let value = try? container.decode(String.self, forKey: key) {
+            return value
+        }
+        if let value = try? container.decodeNil(forKey: key) {
+            if value {
+                return JSONNull()
+            }
+        }
+        if var container = try? container.nestedUnkeyedContainer(forKey: key) {
+            return try decodeArray(from: &container)
+        }
+        if var container = try? container.nestedContainer(keyedBy: JSONCodingKey.self, forKey: key) {
+            return try decodeDictionary(from: &container)
+        }
+        throw decodingError(forCodingPath: container.codingPath)
+    }
+
+    static func decodeArray(from container: inout UnkeyedDecodingContainer) throws -> [Any] {
+        var arr: [Any] = []
+        while !container.isAtEnd {
+            let value = try decode(from: &container)
+            arr.append(value)
+        }
+        return arr
+    }
+
+    static func decodeDictionary(from container: inout KeyedDecodingContainer<JSONCodingKey>) throws -> [String: Any] {
+        var dict = [String: Any]()
+        for key in container.allKeys {
+            let value = try decode(from: &container, forKey: key)
+            dict[key.stringValue] = value
+        }
+        return dict
+    }
+
+    static func encode(to container: inout UnkeyedEncodingContainer, array: [Any]) throws {
+        for value in array {
+            if let value = value as? Bool {
+                try container.encode(value)
+            } else if let value = value as? Int64 {
+                try container.encode(value)
+            } else if let value = value as? Double {
+                try container.encode(value)
+            } else if let value = value as? String {
+                try container.encode(value)
+            } else if value is JSONNull {
+                try container.encodeNil()
+            } else if let value = value as? [Any] {
+                var container = container.nestedUnkeyedContainer()
+                try encode(to: &container, array: value)
+            } else if let value = value as? [String: Any] {
+                var container = container.nestedContainer(keyedBy: JSONCodingKey.self)
+                try encode(to: &container, dictionary: value)
+            } else {
+                throw encodingError(forValue: value, codingPath: container.codingPath)
+            }
+        }
+    }
+
+    static func encode(to container: inout KeyedEncodingContainer<JSONCodingKey>, dictionary: [String: Any]) throws {
+        for (key, value) in dictionary {
+            let key = JSONCodingKey(stringValue: key)!
+            if let value = value as? Bool {
+                try container.encode(value, forKey: key)
+            } else if let value = value as? Int64 {
+                try container.encode(value, forKey: key)
+            } else if let value = value as? Double {
+                try container.encode(value, forKey: key)
+            } else if let value = value as? String {
+                try container.encode(value, forKey: key)
+            } else if value is JSONNull {
+                try container.encodeNil(forKey: key)
+            } else if let value = value as? [Any] {
+                var container = container.nestedUnkeyedContainer(forKey: key)
+                try encode(to: &container, array: value)
+            } else if let value = value as? [String: Any] {
+                var container = container.nestedContainer(keyedBy: JSONCodingKey.self, forKey: key)
+                try encode(to: &container, dictionary: value)
+            } else {
+                throw encodingError(forValue: value, codingPath: container.codingPath)
+            }
+        }
+    }
+
+    static func encode(to container: inout SingleValueEncodingContainer, value: Any) throws {
+        if let value = value as? Bool {
+            try container.encode(value)
+        } else if let value = value as? Int64 {
+            try container.encode(value)
+        } else if let value = value as? Double {
+            try container.encode(value)
+        } else if let value = value as? String {
+            try container.encode(value)
+        } else if value is JSONNull {
+            try container.encodeNil()
+        } else {
+            throw encodingError(forValue: value, codingPath: container.codingPath)
+        }
+    }
+
+    public required init(from decoder: Decoder) throws {
+        if var arrayContainer = try? decoder.unkeyedContainer() {
+            self.value = try JSONAny.decodeArray(from: &arrayContainer)
+        } else if var container = try? decoder.container(keyedBy: JSONCodingKey.self) {
+            self.value = try JSONAny.decodeDictionary(from: &container)
+        } else {
+            let container = try decoder.singleValueContainer()
+            self.value = try JSONAny.decode(from: container)
+        }
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        if let arr = self.value as? [Any] {
+            var container = encoder.unkeyedContainer()
+            try JSONAny.encode(to: &container, array: arr)
+        } else if let dict = self.value as? [String: Any] {
+            var container = encoder.container(keyedBy: JSONCodingKey.self)
+            try JSONAny.encode(to: &container, dictionary: dict)
+        } else {
+            var container = encoder.singleValueContainer()
+            try JSONAny.encode(to: &container, value: self.value)
+        }
     }
 }

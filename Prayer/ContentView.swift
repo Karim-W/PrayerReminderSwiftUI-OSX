@@ -28,27 +28,31 @@ struct ContentView: View {
             Button("pwess") {
                 Task.init(priority: .background) {
                     await PrayerAPI().getPrayerTimes(completion: { PrayerAPIResponse in
-                        print(PrayerAPIResponse)
+                        prayerTimings["Fajr"] = PrayerAPIResponse.fajr
                     })
                 }
             }
             
-        }.padding().frame(minWidth: 400)
+        }.padding().frame(minWidth: 400).onAppear {
+            initialLoad()
+        }
         
     }
-    
-}
-
-func idkman() async{
-    let urlString = "https://api.aladhan.com/v1/calendarByCity?city=London&country=United%20Kingdom&method=2&month=04&year=2017"
-    do{
-        guard let urll = URL(string: urlString) else { return  }
-        let (data,_) = try await URLSession.shared.data(from: urll)
-        print(String(data: data, encoding: .utf8)!)
-    }catch{
-        print("error")
+    func initialLoad(){//Shout out iyas
+        Task.init(priority: .background) {
+            await PrayerAPI().getPrayerTimes(completion: { PrayerAPIResponse in
+                prayerTimings["Fajr"] = PrayerAPIResponse.fajr
+                prayerTimings["Duhur"] = PrayerAPIResponse.dhuhr
+                prayerTimings["Asr"] = PrayerAPIResponse.asr
+                prayerTimings["Maghrib"] = PrayerAPIResponse.maghrib
+                prayerTimings["Isha"] = PrayerAPIResponse.isha
+                
+            })
+        }
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
