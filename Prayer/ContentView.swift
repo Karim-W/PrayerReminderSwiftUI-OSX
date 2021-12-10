@@ -9,74 +9,46 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
+    @State var prayerTimings = ["Fajr":"06:00",
+                                "Duhur":"12:21",
+                                "Asr":"3:14",
+                                "Maghrib":"5:32",
+                                "Isha":"8:00"]
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+        VStack{
+            HStack{
+                ForEach(prayerTimings.reversed(), id: \.key) { key, value in
+                    VStack{
+                        Text(key)
+                        Text(value)
                     }
                 }
-                .onDelete(perform: deleteItems)
+                
             }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+            Button("pwess") {
+                Task.init(priority: .background) {
+                    await PrayerAPI().getPrayerTimes(completion: { PrayerAPIResponse in
+                        print(PrayerAPIResponse)
+                    })
                 }
             }
-            Text("Select an item")
-        }
+            
+        }.padding().frame(minWidth: 400)
+        
     }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+    
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
+func idkman() async{
+    let urlString = "https://api.aladhan.com/v1/calendarByCity?city=London&country=United%20Kingdom&method=2&month=04&year=2017"
+    do{
+        guard let urll = URL(string: urlString) else { return  }
+        let (data,_) = try await URLSession.shared.data(from: urll)
+        print(String(data: data, encoding: .utf8)!)
+    }catch{
+        print("error")
+    }
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
