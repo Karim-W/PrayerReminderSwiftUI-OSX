@@ -8,7 +8,7 @@
 import Foundation
 
 
-class Prayer{
+class Prayer:Identifiable{
     private var _prayerName:prayerType!
     private var _startTime:String!
     private var _timePrayed:String!

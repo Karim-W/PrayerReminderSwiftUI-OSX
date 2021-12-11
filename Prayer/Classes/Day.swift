@@ -12,6 +12,16 @@ class Day{
         }
         self.prayers = prayersArr
     }
+    init(){
+        self.date = getDate()
+    }
+    func setPrayersOfTheDay(prayerArr:[Prayer]){
+        self.prayers = prayerArr
+    }
+    
+    func getPrayerTimes()->[Prayer]{
+        return prayers!
+    }
 
 
     //function to get current date in string format

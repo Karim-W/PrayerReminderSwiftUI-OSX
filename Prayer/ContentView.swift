@@ -9,28 +9,29 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @State var prayerTimings = ["Fajr":"06:00",
-                                "Duhur":"12:21",
-                                "Asr":"3:14",
-                                "Maghrib":"5:32",
-                                "Isha":"8:00"]
+    @State var loading = true
+    @State var dayInstance = Day()
     var body: some View {
         VStack{
+            if(!loading){
             HStack{
-                ForEach(prayerTimings.reversed(), id: \.key) { key, value in
+                ForEach(dayInstance.getPrayerTimes()) { aPrayer in
                     VStack{
-                        Text(key)
-                        Text(value)
-                    }
+//                        Text(aPrayer.prayerName)
+                        Text(aPrayer.startTime)
+                    }.padding()
                 }
                 
+                
+            }
+            }else{
+                VStack{
+                    ProgressView().progressViewStyle(.circular)
+                    Text("Loading Prayers")
+                }
             }
             Button("pwess") {
-                Task.init(priority: .background) {
-                    await PrayerAPI().getPrayerTimes(completion: { PrayerAPIResponse in
-                        prayerTimings["Fajr"] = PrayerAPIResponse.fajr
-                    })
-                }
+                getBearing()
             }
             
         }.padding().frame(minWidth: 400).onAppear {
@@ -41,14 +42,28 @@ struct ContentView: View {
     func initialLoad(){//Shout out iyas
         Task.init(priority: .background) {
             await PrayerAPI().getPrayerTimes(completion: { PrayerAPIResponse in
-                prayerTimings["Fajr"] = PrayerAPIResponse.fajr
-                prayerTimings["Duhur"] = PrayerAPIResponse.dhuhr
-                prayerTimings["Asr"] = PrayerAPIResponse.asr
-                prayerTimings["Maghrib"] = PrayerAPIResponse.maghrib
-                prayerTimings["Isha"] = PrayerAPIResponse.isha
-                
+                var prayers:[Prayer] = []
+                prayers.append(Prayer(pName: prayerType.Fajr, pStart: PrayerAPIResponse.fajr))
+                prayers.append(Prayer(pName: prayerType.Duhur, pStart: PrayerAPIResponse.dhuhr))
+                prayers.append(Prayer(pName: prayerType.Asr, pStart: PrayerAPIResponse.asr))
+                prayers.append(Prayer(pName: prayerType.Maghrib, pStart: PrayerAPIResponse.maghrib))
+                prayers.append(Prayer(pName: prayerType.Isha, pStart: PrayerAPIResponse.isha))
+                dayInstance.setPrayersOfTheDay(prayerArr: prayers)
+                loading = false
             })
         }
+    }
+    func getBearing(){
+        let formatingDate = getFormattedDate(date: Date(), format: "HH:MM")
+//        for timing in prayerTimings{
+//            print(timing.key,":",timing.value)
+//        }
+                print(formatingDate)
+    }
+    func getFormattedDate(date: Date, format: String) -> String {
+            let dateformat = DateFormatter()
+            dateformat.dateFormat = format
+            return dateformat.string(from: date)
     }
 }
 
