@@ -22,7 +22,17 @@ class Day{
     func getPrayerTimes()->[Prayer]{
         return prayers!
     }
-
+    
+    func logPrayed(prayerName:prayerType){
+        let index = self.prayers?.firstIndex(where: { p in
+            p.prayerName == prayerName
+        })
+        
+        if(self.prayers![index!].timePrayed == "N/A"){
+            self.prayers![index!].timePrayed = String(Date().timeIntervalSince1970)
+            self.prayers![index!].Color = .blue
+        }
+    }
 
     //function to get current date in string format
 func getDate() -> String{

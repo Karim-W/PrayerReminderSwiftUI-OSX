@@ -42,13 +42,17 @@ struct ContentView: View {
             if(!loading){
                 HStack{
                     ForEach(dayInstance.getPrayerTimes()) { aPrayer in
+                        
                         VStack{
                             Group {
                                 Text(aPrayer.getPrayerName()).padding(.horizontal).padding(.top)
                                 Text(aPrayer.startTime).padding(.bottom)
                             }
                             
-                        }.background(Color.init(Color.RGBColorSpace.sRGB, red: 0.99, green: 0.13, blue: 0.11, opacity:  0.3)).cornerRadius(CGFloat(10)).padding(.vertical)
+                        }.background(aPrayer.Color).cornerRadius(CGFloat(10)).padding(.vertical).onTapGesture {
+                            dayInstance.logPrayed(prayerName: aPrayer.prayerName)
+                            refresh()
+                        }
                     }
                 }.padding()
             }else{
@@ -60,7 +64,10 @@ struct ContentView: View {
         }.padding().frame(minWidth: 400,minHeight: 400).onAppear {
             initialLoad()
         }
-        
+    }
+    func refresh(){
+        loading.toggle()
+        loading.toggle()
     }
     func initialLoad(){//Shout out iyas
         Task.init(priority: .background) {
@@ -93,7 +100,6 @@ struct ContentView: View {
                 if(i==0){
                     TotalMins = getTimeDiffrenceinMins(start: prs[4].startTime, end: prs[i].startTime)
                     TotalMins += 12*60
-                    print(TotalMins)
                 }else{
                     TotalMins = getTimeDiffrenceinMins(start: prs[i-1].startTime, end: prs[i].startTime)
                 }
@@ -117,8 +123,6 @@ struct ContentView: View {
     }
     //Function to get the time diffrence
     func getTimeDiffrence(start: String, end: String) -> String{
-        print("start",start)
-        print("end",end)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let startDate = dateFormatter.date(from: start)
