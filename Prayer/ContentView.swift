@@ -92,13 +92,24 @@ struct ContentView: View {
             if(prs[i].startTime>formatingDate){
                 if(i==0){
                     currentPrayer = prs[4].getPrayerName()
-                }else{
-                    currentPrayer = prs[i-1].getPrayerName()
+                    nextPrayer = prs[i].getPrayerName()
+                    nextTime = prs[i].startTime
+                }else if(i == 4){
+                    currentPrayer = prs[4].getPrayerName()
+                    nextPrayer = prs[0].getPrayerName()
+                    nextTime = prs[0].startTime
                 }
-                nextPrayer = prs[i].getPrayerName()
-                nextTime = prs[i].startTime
+                else{
+                    currentPrayer = prs[i-1].getPrayerName()
+                    nextPrayer = prs[i].getPrayerName()
+                    nextTime = prs[i].startTime
+                }
+                
                 if(i==0){
                     TotalMins = getTimeDiffrenceinMins(start: prs[4].startTime, end: prs[i].startTime)
+                    TotalMins += 12*60
+                }else if(i==4){
+                    TotalMins = getTimeDiffrenceinMins(start: prs[4].startTime, end: prs[0].startTime)
                     TotalMins += 12*60
                 }else{
                     TotalMins = getTimeDiffrenceinMins(start: prs[i-1].startTime, end: prs[i].startTime)
