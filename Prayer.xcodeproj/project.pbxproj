@@ -21,6 +21,8 @@
 		8ACE7A75275E2AA90000DBC3 /* PrayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A74275E2AA90000DBC3 /* PrayerTests.swift */; };
 		8ACE7A7F275E2AA90000DBC3 /* PrayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A7E275E2AA90000DBC3 /* PrayerUITests.swift */; };
 		8ACE7A81275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A80275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift */; };
+		8AF2BF8A276A3B460024226A /* Nav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2BF89276A3B460024226A /* Nav.swift */; };
+		8AF2BF8C276A40650024226A /* DayViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF2BF8B276A40650024226A /* DayViewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		8ACE7A7A275E2AA90000DBC3 /* PrayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ACE7A7E275E2AA90000DBC3 /* PrayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerUITests.swift; sourceTree = "<group>"; };
 		8ACE7A80275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8AF2BF89276A3B460024226A /* Nav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nav.swift; sourceTree = "<group>"; };
+		8AF2BF8B276A40650024226A /* DayViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +151,7 @@
 				8A403D4C275E93A500B7DD8F /* ApiUtil */,
 				8A403D44275E875F00B7DD8F /* Classes */,
 				8ACE7A5D275E2AA70000DBC3 /* PrayerApp.swift */,
+				8AF2BF86276A3B1E0024226A /* Views */,
 				8ACE7A5F275E2AA70000DBC3 /* ContentView.swift */,
 				8ACE7A61275E2AA90000DBC3 /* Assets.xcassets */,
 				8ACE7A66275E2AA90000DBC3 /* Persistence.swift */,
@@ -180,6 +185,15 @@
 				8ACE7A80275E2AA90000DBC3 /* PrayerUITestsLaunchTests.swift */,
 			);
 			path = PrayerUITests;
+			sourceTree = "<group>";
+		};
+		8AF2BF86276A3B1E0024226A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8AF2BF89276A3B460024226A /* Nav.swift */,
+				8AF2BF8B276A40650024226A /* DayViewer.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AF2BF8C276A40650024226A /* DayViewer.swift in Sources */,
 				8A403D4B275E905F00B7DD8F /* Day.swift in Sources */,
 				8A403D49275E88ED00B7DD8F /* PrayerType.swift in Sources */,
 				8ACE7A67275E2AA90000DBC3 /* Persistence.swift in Sources */,
@@ -319,6 +334,7 @@
 				8ACE7A60275E2AA70000DBC3 /* ContentView.swift in Sources */,
 				8A403D4E275E93C900B7DD8F /* ApiBase.swift in Sources */,
 				8ACE7A6A275E2AA90000DBC3 /* Prayer.xcdatamodeld in Sources */,
+				8AF2BF8A276A3B460024226A /* Nav.swift in Sources */,
 				8A403D51275E954000B7DD8F /* PrayerApiResponse.swift in Sources */,
 				8ACE7A5E275E2AA70000DBC3 /* PrayerApp.swift in Sources */,
 			);
