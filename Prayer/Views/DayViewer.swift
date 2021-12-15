@@ -27,7 +27,7 @@ struct DayViewer: View {
                 Circle()
                     .trim(from: 0.0, to: CGFloat(progressValue))
                     .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color.red).rotationEffect(.degrees(90.0))
+                    .foregroundColor(Color.red).rotationEffect(.degrees(90.0)).shadow(color: .red, radius: CGFloat(2))
                 VStack{
                     Text("Current Prayer: \(currentPrayer)")
                     Text("Next Prayer: \(nextPrayer)")

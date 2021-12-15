@@ -12,12 +12,12 @@ struct Nav: View {
     var body: some View {
         VStack{
             HStack(spacing:100){
-                Image(systemName: "arrow.left")
-                Text(viewDate)
-                Image(systemName: "arrow.right")
+                Image(systemName: "arrow.left").font(.largeTitle)
+                Text(viewDate).font(.largeTitle)
+                Image(systemName: "arrow.right").font(.largeTitle)
             }
             DayViewer()
-        }.padding().frame(minWidth: 400,minHeight: 500,alignment: .top)
+        }.padding().frame(minWidth: 500,minHeight: 500,alignment: .center)
     }
 }
 
