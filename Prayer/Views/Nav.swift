@@ -11,6 +11,10 @@ struct Nav: View {
     @State var viewDate:String = "Today"
     var body: some View {
         VStack{
+            HStack{
+                Spacer()
+                Image(systemName: "gear").font(.subheadline)
+            }
             HStack(spacing:100){
                 Image(systemName: "arrow.left").font(.largeTitle)
                 Text(viewDate).font(.largeTitle)
