@@ -36,6 +36,7 @@ class PrayerAPI{
     }
     
     func getPrayerWithForumlatedPayload(payload:String, completion: @escaping (Timings) ->Void) async{
+        print("loaded \(payload)")
         let urlString = self.baseUrl+"timings/"+payload
         do{
             guard let getUrl = URL(string: urlString) else {return}

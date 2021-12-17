@@ -15,28 +15,33 @@ struct Nav: View {
     @State var navedDate:Date = Date()
     var body: some View {
         VStack{
-            if(loaded){
-            HStack{
-                Spacer()
-            }
-            HStack{
-                Spacer()
-                Group {
-                    Image(systemName: "arrow.left").font(.largeTitle).onTapGesture {
-                        moveOneDay(nextDay: false)
+
+                Group{
+                    HStack{
+                        Spacer()
                     }
-                    Text(viewDate).font(.largeTitle)
-                    Image(systemName: "arrow.right").font(.largeTitle).onTapGesture {
-                        moveOneDay(nextDay: true)
+                    HStack{
+                        Spacer()
+                        Group {
+                            Image(systemName: "arrow.left").font(.largeTitle).onTapGesture {
+                                moveOneDay(nextDay: false)
+                            }
+                            Text(viewDate).font(.largeTitle)
+                            Image(systemName: "arrow.right").font(.largeTitle).onTapGesture {
+                                moveOneDay(nextDay: true)
+                            }
+                        }
+                        Spacer()
+                        Image(systemName: "gear").font(.title)
+                    }
+                    if(loaded){
+                    DayViewer(APIPayload: ApiPayload(loca: loc.getLongLatApiString(), dat: viewDate).getPayload(),addedLoader: loaded)
+                    }else{
+                        ProgressView()
                     }
                 }
-                Spacer()
-                Image(systemName: "gear").font(.title)
-            }
-                DayViewer(APIPayload: ApiPayload(loca: loc.getLongLatApiString(), dat: viewDate).getPayload())
-            }else{
-                ProgressView()
-            }
+            
+            
         }.padding().frame(minWidth: 600,minHeight: 500,alignment: .center).onAppear {
             thingie = ApiPayload(loca: loc.getLongLatApiString(), dat: "Today")
             loaded = true
@@ -44,6 +49,7 @@ struct Nav: View {
     }
     func moveOneDay(nextDay:Bool){
         //increment date by one
+        loaded = false
         let formatter = DateFormatter()
         formatter.dateFormat = "dd-MM-yyyy"
         var newDay:String
@@ -62,6 +68,11 @@ struct Nav: View {
         }else{
             viewDate = newDay
         }
+        async{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){loaded.toggle()}
+        }
+
+        
        
 }
 }

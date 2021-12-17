@@ -18,6 +18,7 @@ struct DayViewer: View {
     @State var progressValue: Float = 0.05
     @State var TotalMins: Int = 0
     @State var APIPayload:String
+    @State var addedLoader:Bool
     let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     var body: some View {
         VStack{
@@ -35,14 +36,14 @@ struct DayViewer: View {
                     Text("Time Remaining:")
                     Text(remaining)
                 }.onReceive(timer) { time in
-                    getBearing()
-                    setTimeRemaining()
+                    initialLoad()
+//                    getBearing()
+//                    setTimeRemaining()
                 }
             }.padding()
-            if(!loading){
+            if(!loading && addedLoader){
                 HStack{
                     ForEach(dayInstance.getPrayerTimes()) { aPrayer in
-                        
                         VStack{
                             Group {
                                 Text(aPrayer.getPrayerName()).padding(.horizontal).padding(.top)
@@ -71,6 +72,7 @@ struct DayViewer: View {
     }
     func initialLoad(){//Shout out iyas
         Task.init(priority: .background) {
+            print("here is the api string\(APIPayload)")
             await PrayerAPI().getPrayerWithForumlatedPayload(payload: APIPayload,completion: { PrayerAPIResponse in
                 var prayers:[Prayer] = []
                 prayers.append(Prayer(pName: prayerType.Fajr, pStart: PrayerAPIResponse.fajr))
@@ -177,6 +179,6 @@ struct DayViewer: View {
 
 struct DayViewer_Previews: PreviewProvider {
     static var previews: some View {
-        DayViewer(APIPayload: "17-12-2021?latitude=25.21823856330777&longitude=55.413192480005186&method=8")
+        DayViewer(APIPayload: "17-12-2021?latitude=25.21823856330777&longitude=55.413192480005186&method=8",addedLoader: true)
     }
 }
