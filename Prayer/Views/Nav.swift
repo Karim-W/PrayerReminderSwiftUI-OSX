@@ -12,32 +12,60 @@ struct Nav: View {
     @ObservedObject private var loc = LocationManager()
     @State var thingie:ApiPayload?
     @State var loaded:Bool = false
+    @State var navedDate:Date = Date()
     var body: some View {
         VStack{
             if(loaded){
             HStack{
                 Spacer()
             }
-            HStack(spacing:90){
+            HStack{
                 Spacer()
                 Group {
-                    Image(systemName: "arrow.left").font(.largeTitle)
+                    Image(systemName: "arrow.left").font(.largeTitle).onTapGesture {
+                        moveOneDay(nextDay: false)
+                    }
                     Text(viewDate).font(.largeTitle)
-                    Image(systemName: "arrow.right").font(.largeTitle)
+                    Image(systemName: "arrow.right").font(.largeTitle).onTapGesture {
+                        moveOneDay(nextDay: true)
+                    }
                 }
+                Spacer()
                 Image(systemName: "gear").font(.title)
-                Text(ApiPayload(loca: loc.getLongLatApiString(), dat: "Today").getPayload())
-            }.padding(.horizontal)
-                DayViewer()
+            }
+                DayViewer(APIPayload: ApiPayload(loca: loc.getLongLatApiString(), dat: viewDate).getPayload())
             }else{
                 ProgressView()
             }
-        }.padding().frame(minWidth: 500,minHeight: 500,alignment: .center).onAppear {
+        }.padding().frame(minWidth: 600,minHeight: 500,alignment: .center).onAppear {
             thingie = ApiPayload(loca: loc.getLongLatApiString(), dat: "Today")
             loaded = true
         }
     }
+    func moveOneDay(nextDay:Bool){
+        //increment date by one
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy"
+        var newDay:String
+        if(nextDay){
+            let newDate = Calendar.current.date(byAdding: .day, value: 1, to: navedDate)
+            navedDate = newDate!
+            newDay = formatter.string(from: newDate!)
+        }else{
+            let newDate = Calendar.current.date(byAdding: .day, value: -1, to: navedDate)
+            navedDate = newDate!
+            newDay = formatter.string(from: newDate!)
+        }
+        let today = formatter.string(from: Date())
+        if(newDay==today){
+            viewDate = "Today"
+        }else{
+            viewDate = newDay
+        }
+       
 }
+}
+
 
 struct Nav_Previews: PreviewProvider {
     static var previews: some View {
