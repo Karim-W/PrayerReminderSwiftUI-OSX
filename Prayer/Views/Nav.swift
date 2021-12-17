@@ -10,8 +10,11 @@ import CoreLocation
 struct Nav: View {
     @State var viewDate:String = "Today"
     @ObservedObject private var loc = LocationManager()
+    @State var thingie:ApiPayload?
+    @State var loaded:Bool = false
     var body: some View {
         VStack{
+            if(loaded){
             HStack{
                 Spacer()
             }
@@ -23,11 +26,16 @@ struct Nav: View {
                     Image(systemName: "arrow.right").font(.largeTitle)
                 }
                 Image(systemName: "gear").font(.title)
-                Text(loc.getLongLatApiString())
-
+                Text(ApiPayload(loca: loc.getLongLatApiString(), dat: "Today").getPayload())
             }.padding(.horizontal)
-            DayViewer()
-        }.padding().frame(minWidth: 500,minHeight: 500,alignment: .center)
+                DayViewer()
+            }else{
+                ProgressView()
+            }
+        }.padding().frame(minWidth: 500,minHeight: 500,alignment: .center).onAppear {
+            thingie = ApiPayload(loca: loc.getLongLatApiString(), dat: "Today")
+            loaded = true
+        }
     }
 }
 
