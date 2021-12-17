@@ -6,20 +6,26 @@
 //
 
 import SwiftUI
-
+import CoreLocation
 struct Nav: View {
     @State var viewDate:String = "Today"
+    @ObservedObject private var loc = LocationManager()
     var body: some View {
         VStack{
             HStack{
                 Spacer()
-                Image(systemName: "gear").font(.subheadline)
             }
-            HStack(spacing:100){
-                Image(systemName: "arrow.left").font(.largeTitle)
-                Text(viewDate).font(.largeTitle)
-                Image(systemName: "arrow.right").font(.largeTitle)
-            }
+            HStack(spacing:90){
+                Spacer()
+                Group {
+                    Image(systemName: "arrow.left").font(.largeTitle)
+                    Text(viewDate).font(.largeTitle)
+                    Image(systemName: "arrow.right").font(.largeTitle)
+                }
+                Image(systemName: "gear").font(.title)
+                Text(loc.getLongLatApiString())
+
+            }.padding(.horizontal)
             DayViewer()
         }.padding().frame(minWidth: 500,minHeight: 500,alignment: .center)
     }
