@@ -14,6 +14,7 @@
 		8A403D51275E954000B7DD8F /* PrayerApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A403D50275E954000B7DD8F /* PrayerApiResponse.swift */; };
 		8ACAE609276C97C000533128 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAE608276C97C000533128 /* LocationManager.swift */; };
 		8ACAE60B276CAE4600533128 /* ApiPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAE60A276CAE4600533128 /* ApiPayload.swift */; };
+		8ACAE60D276D07ED00533128 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACAE60C276D07ED00533128 /* TabBarView.swift */; };
 		8ACE7A5E275E2AA70000DBC3 /* PrayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A5D275E2AA70000DBC3 /* PrayerApp.swift */; };
 		8ACE7A60275E2AA70000DBC3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACE7A5F275E2AA70000DBC3 /* ContentView.swift */; };
 		8ACE7A62275E2AA90000DBC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8ACE7A61275E2AA90000DBC3 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		8A403D50275E954000B7DD8F /* PrayerApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerApiResponse.swift; sourceTree = "<group>"; };
 		8ACAE608276C97C000533128 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8ACAE60A276CAE4600533128 /* ApiPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApiPayload.swift; path = Prayer/Classes/ApiPayload.swift; sourceTree = SOURCE_ROOT; };
+		8ACAE60C276D07ED00533128 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		8ACE7A5A275E2AA70000DBC3 /* Prayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ACE7A5D275E2AA70000DBC3 /* PrayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrayerApp.swift; sourceTree = "<group>"; };
 		8ACE7A5F275E2AA70000DBC3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				8AF2BF89276A3B460024226A /* Nav.swift */,
 				8AF2BF8B276A40650024226A /* DayViewer.swift */,
+				8ACAE60C276D07ED00533128 /* TabBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			files = (
 				8AF2BF8C276A40650024226A /* DayViewer.swift in Sources */,
 				8A403D4B275E905F00B7DD8F /* Day.swift in Sources */,
+				8ACAE60D276D07ED00533128 /* TabBarView.swift in Sources */,
 				8A403D49275E88ED00B7DD8F /* PrayerType.swift in Sources */,
 				8ACE7A67275E2AA90000DBC3 /* Persistence.swift in Sources */,
 				8A403D46275E877600B7DD8F /* Prayer.swift in Sources */,

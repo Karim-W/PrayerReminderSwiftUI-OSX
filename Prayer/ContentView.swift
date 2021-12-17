@@ -10,7 +10,7 @@ import CoreData
 
 struct ContentView: View {
     var body: some View {
-        Nav()
+        TabBarView()
     }
 }
 struct ContentView_Previews: PreviewProvider {
