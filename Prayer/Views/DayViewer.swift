@@ -49,7 +49,6 @@ struct DayViewer: View {
                                 Text(aPrayer.getPrayerName()).padding(.horizontal).padding(.top)
                                 Text(aPrayer.startTime).padding(.bottom)
                             }
-                            
                         }.background(aPrayer.Color).cornerRadius(CGFloat(10)).padding(.vertical).onTapGesture {
                             dayInstance.logPrayed(prayerName: aPrayer.prayerName)
                             refresh()

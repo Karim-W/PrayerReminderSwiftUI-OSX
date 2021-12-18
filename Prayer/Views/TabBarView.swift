@@ -21,22 +21,32 @@ var selected:Bool
 }
 
 struct TabBarView: View {
+    @State var SelectedIndex:Int = 0
     @State var views:[TabBarViews] = [TabBarViews(ID:0,Name:"Home",IconName:"house",Selected:true),TabBarViews(ID:1,Name:"Settings",IconName:"gear",Selected:false)]
+    let col = SwiftUI.Color(SwiftUI.Color.RGBColorSpace.sRGB, red: 0.99, green: 0.13, blue: 0.11, opacity:  0.3)
     var body: some View {
         VStack{
-            Nav()
+            Group{
+            switch(SelectedIndex){
+            case 0: Nav()
+            case 1: SettingsView()
+            default:
+                Text("error")
+            }}.frame(minWidth:600,minHeight: 500)
             HStack{
-                
                 ForEach(views){ aView in
                     ZStack{
-                        Rectangle().frame(minWidth:300,maxHeight: 50)
+                        Rectangle().frame(minWidth:310,maxHeight: 50).foregroundColor((aView.id == SelectedIndex) ? .red : .red.opacity(0.3))
                         HStack{
+                            Image(systemName: aView.iconName)
                             Text(aView.name)
                         }
+                    }.onTapGesture {
+                        SelectedIndex = aView.id
                     }
                 }
-            }
-        }.frame(minWidth:600,minHeight: 800)
+            }.background(.red.opacity(0.3))
+        }.frame(minWidth:600,minHeight: 500)
         
     }
 }
