@@ -15,14 +15,11 @@ struct Nav: View {
     @State var navedDate:Date = Date()
     var body: some View {
         VStack{
-
                 Group{
                     HStack{
                         Spacer()
                     }
-                    HStack{
-                        Spacer()
-                        Group {
+                    HStack(spacing:100){
                             Image(systemName: "arrow.left").font(.largeTitle).onTapGesture {
                                 moveOneDay(nextDay: false)
                             }
@@ -30,9 +27,7 @@ struct Nav: View {
                             Image(systemName: "arrow.right").font(.largeTitle).onTapGesture {
                                 moveOneDay(nextDay: true)
                             }
-                        }
-                        Spacer()
-                        Image(systemName: "gear").font(.title)
+
                     }
                     if(loaded){
                     DayViewer(APIPayload: ApiPayload(loca: loc.getLongLatApiString(), dat: viewDate).getPayload(),addedLoader: loaded)
