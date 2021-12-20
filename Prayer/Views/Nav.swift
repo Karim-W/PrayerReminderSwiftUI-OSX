@@ -15,29 +15,29 @@ struct Nav: View {
     @State var navedDate:Date = Date()
     var body: some View {
         VStack{
-                Group{
-                    HStack{
-                        Spacer()
-                    }
-                    HStack(spacing:100){
-                            Image(systemName: "arrow.left").font(.largeTitle).onTapGesture {
-                                moveOneDay(nextDay: false)
-                            }
-                            Text(viewDate).font(.largeTitle)
-                            Image(systemName: "arrow.right").font(.largeTitle).onTapGesture {
-                                moveOneDay(nextDay: true)
-                            }
-
-                    }
-                    if(loaded){
-                    DayViewer(APIPayload: ApiPayload(loca: loc.getLongLatApiString(), dat: viewDate).getPayload(),addedLoader: loaded)
-                    }else{
-                        ProgressView()
-                    }
+            Group{
+                HStack{
+                    Spacer()
                 }
+                HStack(spacing:100){
+                    Image(systemName: "arrow.left").font(.largeTitle).onTapGesture {
+                        moveOneDay(nextDay: false)
+                    }
+                    Text(viewDate).font(.largeTitle)
+                    Image(systemName: "arrow.right").font(.largeTitle).onTapGesture {
+                        moveOneDay(nextDay: true)
+                    }
+                    
+                }
+                if(loaded){
+                    DayViewer(APIPayload: ApiPayload(loca: loc.getLongLatApiString(), dat: viewDate).getPayload(),addedLoader: loaded)
+                }else{
+                    ProgressView()
+                }
+            }
             
             
-        }.padding().frame(minWidth: 600,minHeight: 500,alignment: .center).onAppear {
+        }.padding().frame(minWidth: 300,minHeight: 500,alignment: .center).onAppear {
             thingie = ApiPayload(loca: loc.getLongLatApiString(), dat: "Today")
             loaded = true
         }
@@ -66,10 +66,10 @@ struct Nav: View {
         async{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){loaded.toggle()}
         }
-
         
-       
-}
+        
+        
+    }
 }
 
 
