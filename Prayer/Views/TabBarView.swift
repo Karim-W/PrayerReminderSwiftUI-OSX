@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TabBarViews:Identifiable{
-var id:Int
-var name:String
-var iconName:String
-var selected:Bool
+    var id:Int
+    var name:String
+    var iconName:String
+    var selected:Bool
     init(ID:Int,Name:String,IconName:String,Selected:Bool){
         self.id = ID
         self.name = Name
@@ -27,12 +27,12 @@ struct TabBarView: View {
     var body: some View {
         VStack{
             Group{
-            switch(SelectedIndex){
-            case 0: Nav()
-            case 1: SettingsView()
-            default:
-                Text("error")
-            }}.frame(minWidth:600,minHeight: 500)
+                switch(SelectedIndex){
+                case 0: Nav()
+                case 1: SettingsView()
+                default:
+                    Text("error")
+                }}.frame(minWidth:40,minHeight: 500)
             HStack{
                 ForEach(views){ aView in
                     ZStack{

@@ -37,8 +37,8 @@ struct DayViewer: View {
                     Text(remaining)
                 }.onReceive(timer) { time in
                     initialLoad()
-//                    getBearing()
-//                    setTimeRemaining()
+                    //                    getBearing()
+                    //                    setTimeRemaining()
                 }
             }.padding()
             if(!loading && addedLoader){
@@ -61,7 +61,7 @@ struct DayViewer: View {
                     Text("Loading Prayers")
                 }
             }
-        }.padding().frame(minWidth: 400,minHeight: 400).onAppear {
+        }.padding().frame(minWidth: 300,minHeight: 400).onAppear {
             initialLoad()
         }
     }
@@ -81,7 +81,7 @@ struct DayViewer: View {
                 prayers.append(Prayer(pName: prayerType.Isha, pStart: PrayerAPIResponse.isha))
                 dayInstance.setPrayersOfTheDay(prayerArr: prayers)
                 getBearing()
-//                setTimeRemaining()
+                //                setTimeRemaining()
                 loading = false
             })
         }
@@ -159,8 +159,6 @@ struct DayViewer: View {
         }
     }
     func getTimeDiffrenceinMins(start: String, end: String) -> Int{
-        print("start",start)
-        print("end",end)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         let startDate = dateFormatter.date(from: start)
